@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Title Page</title>
+  
+ 	 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	</head>
+
+	<body>
+		<div>
+			<center><h1 style="color:black;background-color:lightblue;
+			          	font-family:sans-serif;align:center;padding:40px;margin-top:-6px;
+				  	margin-left:-6px;margin-right:-6px">Backend Challenge
+			</h1></center>
+		</div>
+
+		<!-- Table for layout -->
+		<div>
+		<table id="display-container" style="width:100%">
+		<tbody>
+			
+			<!-- 1st row elements: 1) Search by Name 2) Search by Id -->
+			<tr>
+			<td width="50%">
+			<div class="ui-widget">
+				<h2>Search by Food-name</h2>
+    				<input type="text" id="FoodNameInput" placeholder="Food name" />
+    				<button id="FoodNameButton">Enter</button>
+			</div>
+			</td>
+			
+			<td width="50%">
+			<div class="ui-widget">
+				<h2>Search by Food-id</h2>
+    				<input type="text" id="FoodIdInput" placeholder="Food id" />
+    				<button id="FoodIdButton">Enter</button>
+			</div>
+			</td>
+			</tr>
+
+			<!-- 2nd row elements: 1) Table to manually enter food details -->
+			<tr>
+			<td>
+			
+			<div>	
+			<div class="ui-widget">
+				<h2>Enter the food nutrition details (1 Serving)</h2>
+			</div>
+
+			<table id="nutrition-facts">
+
+			<colgroup>
+				<col class="col-1"/>
+				<col class="col-2"/>
+			</colgroup>
+
+			<tbody>
+			
+			<tr>
+				<td class="col-1"><b>Foodname</b></td>
+				<td class="col-2">
+					<input type="text" id="input_foodname"></input>
+				</td>
+				
+				<td class="col-1">&nbsp;</td>
+				<td class="col-2">&nbsp;</td>
+			</tr>
+
+			<tr>
+				<td class="col-1"><b>Calories</b></td>
+				<td class="col-2">
+					<input type="text" id="input1"></input>
+				</td>
+				
+				<td class="col-1">&nbsp;</td>
+				<td class="col-2">&nbsp;</td>
+			</tr>
+
+			<tr>
+				<td class="col-1"><b>Cholesterol</b></td>
+				<td class="col-2">
+					<input type="text" id="input13"></input>
+				</td>
+
+
+				<td class="col-1"><b>Sodium</b></td>
+				<td class="col-2">
+					<input type="text" id="input2"></input>
+				</td>
+			</tr>
+		
+			<tr>
+				<td class="col-1"><b>Total Fat</b></td>
+				<td class="col-2">
+					<input type="text" id="input3"></input>
+				</td>
+			
+				<td class="col-1"><b>Potassium</b></td>
+				<td class="col-2">
+					<input type="text" id="input4"></input>
+				</td>
+			</tr>
+	
+			<tr>
+				<td class="col-1 sub">Saturated</td>
+				<td class="col-2">
+					<input type="text" id="input5"></input>
+				</td>
+				<td class="col-1"><b>Total Carbs</b></td>
+				<td class="col-2">
+					<input type="text" id="input6"></input>
+				</td>
+			</tr>
+	
+			<tr>
+				<td class="col-1 sub">Polyunsaturated</td>
+				<td class="col-2">
+					<input type="text" id="input7"></input>
+				</td>
+				<td class="col-1"><b>Dietary Fiber</b></td>
+				<td class="col-2">
+					<input type="text" id="input8"></input>
+				</td>
+			</tr>
+	
+			<tr>
+				<td class="col-1 sub">Monounsaturated</td>
+				<td class="col-2">
+					<input type="text" id="input9"></input>
+				</td>
+				<td class="col-1"><b>Sugars</b></td>
+				<td class="col-2">
+					<input type="text" id="input10"></input>
+				</td>
+			</tr>
+	
+			<tr>
+				<td class="col-1 sub">Trans</td>
+				<td class="col-2">
+					<input type="text" id="input11"></input>
+				</td>
+				<td class="col-1"><b>Protein</b></td>
+				<td class="col-2">
+					<input type="text" id="input12"></input>
+				</td>
+			</tr>
+	
+			<tr>
+				<td class="col-1"><b>Vitamin A</b></td>
+				<td class="col-2">
+					<input type="text" id="input14"></input>
+				</td>
+				<td class="col-1"><b>Calcium</b></td>
+				<td class="col-2">
+					<input type="text" id="input15"></input>
+				</td>
+			</tr>
+	
+			<tr>
+				<td class="col-1"><b>Vitamin C</b></td>
+				<td class="col-2">
+					<input type="text" id="input16"></input>
+				</td>
+				<td class="col-1"><b>Iron</b></td>
+				<td class="col-2">
+					<input type="text" id="input17"></input>
+				</td>
+			</tr>
+
+			<!-- End of Table to manually enter food details -->
+			</tbody>
+			</table>
+
+			<!-- Button to enter the food-item details -->
+			<div class="ui-widget">
+    				<button id="SubmitNutritionDetailButton">Enter</button>
+			</div>
+			
+			</div>		
+			
+			</td>	
+			</tr>
+
+		<!-- End of Table for layout -->
+		</tbody>
+		</table>
+		</div>
+
+
+		<!-- Script functionality -->
+		<script>
+			
+		// ---- 'click' functionality for #FoodNameButton
+		$("#FoodNameButton").click(function()
+		{
+    		var input_key_val = $("#FoodNameInput").val();
+
+    		if( input_key_val)
+			{
+				window.location.href = '/fetchByName?input_key=' + input_key_val;
+    			$("#FoodNameInput").val("");
+    		}
+			else
+			{
+                alert("Enter a non-empty food name/string");
+			}
+		});
+
+		// ---- 'click' functionality for #FoodIdButton
+		$("#FoodIdButton").click(function()
+		{
+    		var input_key_val = $("#FoodIdInput").val();
+
+    		if( input_key_val)
+			{
+				window.location.href = '/fetchById?input_key=' + input_key_val;
+    			$("#FoodIdInput").val("");
+    		}
+			else
+			{
+                alert("Enter a non-empty food-id");
+			}
+		});
+
+		// ---- 'click' functionality for #SubmitNutritionDetailButton
+		$("#SubmitNutritionDetailButton").click(function()
+		{
+    		var foodname_val 		= $("#input_foodname").val();
+
+    		var calories_val 		= $("#input1").val();
+    		var sodium_val 			= $("#input2").val();
+    		var potassium_val 		= $("#input4").val();
+    		var calcium_val 		= $("#input15").val();
+    		var iron_val 			= $("#input17").val();
+
+			var total_carbs_val 		= $("#input6").val();
+   			var dietary_fibres_val 		= $("#input8").val();
+			var sugar_val 			= $("#input10").val();
+    		var protiens_val 		= $("#input12").val();
+			var cholestrol_val 		= $("#input13").val();
+			var vitamin_a_val 		= $("#input14").val();
+			var vitamin_c_val 		= $("#input16").val();
+
+			var total_fat_val 		= $("#input3").val();
+			var saturated_fat_val 		= $("#input5").val();
+			var polyunsaturated_fat_val 	= $("#input7").val();
+			var monounsaturated_fat_val 	= $("#input9").val();
+			var trans_fat_val 		= $("#input11").val();
+    				
+    		if( foodname_val)
+			{
+            	$.post( '/enterFoodItemManually',
+						{ foodname:foodname_val,
+						  calories: calories_val,
+						  sodium:   sodium_val,
+						  total_fat: total_fat_val,
+						  saturated_fat: saturated_fat_val,
+						  polyunsaturated_fat: polyunsaturated_fat_val,
+						  monounsaturated_fat: monounsaturated_fat_val,
+						  trans_fat: trans_fat_val,
+						  potassium: potassium_val,
+						  total_carbs: total_carbs_val,
+						  dietary_fibres: dietary_fibres_val,
+						  sugar: sugar_val,
+						  protiens: protiens_val,
+						  cholestrol: cholestrol_val,
+						  vitamin_a: vitamin_a_val,
+						  vitamin_c: vitamin_c_val,
+						  calcium: calcium_val,
+						  iron: iron_val
+						},
+						function(res){
+                				alert("Food item data added successfully");
+
+								// reset all the boxes after entering the details
+    							$("#input_foodname").val("");
+    							$("#input1").val("");
+    							$("#input2").val("");
+    							$("#input3").val("");
+    							$("#input4").val("");
+    							$("#input5").val("");
+								$("#input6").val("");
+    							$("#input7").val("");
+								$("#input8").val("");
+    							$("#input9").val("");
+								$("#input10").val("");
+								$("#input11").val("");
+								$("#input12").val("");
+								$("#input13").val("");
+								$("#input14").val("");
+								$("#input15").val("");
+								$("#input16").val("");
+								$("#input17").val("");
+						}
+            		).fail(function(res, teststatus, errorthrown){
+                					alert(res.responseText);
+				});
+    		}
+			else
+			{
+                alert("Enter a non-empty food-name");
+			}
+		});
+
+		</script>
+	</body>
+</html>

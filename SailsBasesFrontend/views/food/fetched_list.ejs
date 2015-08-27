@@ -1,0 +1,17 @@
+	<div>
+		<center><h1 style="color:black;background-color:lightblue;
+		          	font-family:sans-serif;align:center;padding:40px;margin-top:-6px;
+					margin-left:-6px;margin-right:-6px">Backend Challenge
+		</h1></center>
+	</div>
+
+	<div><h2>Fetched food-items list</h1></div>
+	<div>
+		<ul>
+    		<% _.each(item_list, function(item) { %>
+			<li>{ food_name: <%= item.name %>, food_id: <%= item.id %> }
+			</li>
+    		<% }) %>
+  		</ul>	
+	</div>	
+
