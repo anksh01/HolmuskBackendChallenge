@@ -195,114 +195,114 @@
 		// ---- 'click' functionality for #FoodNameButton
 		$("#FoodNameButton").click(function()
 		{
-    		var input_key_val = $("#FoodNameInput").val();
+            var input_key_val = $("#FoodNameInput").val();
 
-    		if( input_key_val)
-			{
-				window.location.href = '/fetchByName?input_key=' + input_key_val;
-    			$("#FoodNameInput").val("");
-    		}
-			else
-			{
-                alert("Enter a non-empty food name/string");
-			}
+    		    if( input_key_val)
+			      {
+				            window.location.href = '/fetchByName?input_key=' + input_key_val;
+    			          $("#FoodNameInput").val("");
+    		    }
+			      else
+			      {
+                    alert("Enter a non-empty food name/string");
+			      }
 		});
 
 		// ---- 'click' functionality for #FoodIdButton
 		$("#FoodIdButton").click(function()
 		{
-    		var input_key_val = $("#FoodIdInput").val();
+    		    var input_key_val = $("#FoodIdInput").val();
 
-    		if( input_key_val)
-			{
-				window.location.href = '/fetchById?input_key=' + input_key_val;
-    			$("#FoodIdInput").val("");
-    		}
-			else
-			{
-                alert("Enter a non-empty food-id");
-			}
+    		    if( input_key_val)
+			      {
+				            window.location.href = '/fetchById?input_key=' + input_key_val;
+    			          $("#FoodIdInput").val("");
+    		    }
+			      else
+			      {
+                    alert("Enter a non-empty food-id");
+			      }
 		});
 
 		// ---- 'click' functionality for #SubmitNutritionDetailButton
 		$("#SubmitNutritionDetailButton").click(function()
 		{
-    		var foodname_val 		= $("#input_foodname").val();
+    		    var foodname_val 		= $("#input_foodname").val();
 
-    		var calories_val 		= $("#input1").val();
-    		var sodium_val 			= $("#input2").val();
-    		var potassium_val 		= $("#input4").val();
-    		var calcium_val 		= $("#input15").val();
-    		var iron_val 			= $("#input17").val();
+    		    var calories_val 		= $("#input1").val();
+    		    var sodium_val 			= $("#input2").val();
+    		    var potassium_val 	= $("#input4").val();
+    		    var calcium_val 		= $("#input15").val();
+    		    var iron_val 			  = $("#input17").val();
 
-			var total_carbs_val 		= $("#input6").val();
-   			var dietary_fibres_val 		= $("#input8").val();
-			var sugar_val 			= $("#input10").val();
-    		var protiens_val 		= $("#input12").val();
-			var cholestrol_val 		= $("#input13").val();
-			var vitamin_a_val 		= $("#input14").val();
-			var vitamin_c_val 		= $("#input16").val();
-
-			var total_fat_val 		= $("#input3").val();
-			var saturated_fat_val 		= $("#input5").val();
-			var polyunsaturated_fat_val 	= $("#input7").val();
-			var monounsaturated_fat_val 	= $("#input9").val();
-			var trans_fat_val 		= $("#input11").val();
+			      var total_carbs_val 		= $("#input6").val();
+   			    var dietary_fibres_val 	= $("#input8").val();
+			      var sugar_val 			    = $("#input10").val();
+    		    var protiens_val 		    = $("#input12").val();
+      			var cholestrol_val 		  = $("#input13").val();
+      			var vitamin_a_val 		  = $("#input14").val();
+      			var vitamin_c_val 		  = $("#input16").val();
+      
+      			var total_fat_val 		  = $("#input3").val();
+      			var saturated_fat_val 		    = $("#input5").val();
+      			var polyunsaturated_fat_val 	= $("#input7").val();
+      			var monounsaturated_fat_val 	= $("#input9").val();
+      			var trans_fat_val 		        = $("#input11").val();
     				
-    		if( foodname_val)
-			{
-            	$.post( '/enterFoodItemManually',
-						{ foodname:foodname_val,
-						  calories: calories_val,
-						  sodium:   sodium_val,
-						  total_fat: total_fat_val,
-						  saturated_fat: saturated_fat_val,
-						  polyunsaturated_fat: polyunsaturated_fat_val,
-						  monounsaturated_fat: monounsaturated_fat_val,
-						  trans_fat: trans_fat_val,
-						  potassium: potassium_val,
-						  total_carbs: total_carbs_val,
-						  dietary_fibres: dietary_fibres_val,
-						  sugar: sugar_val,
-						  protiens: protiens_val,
-						  cholestrol: cholestrol_val,
-						  vitamin_a: vitamin_a_val,
-						  vitamin_c: vitamin_c_val,
-						  calcium: calcium_val,
-						  iron: iron_val
-						},
-						function(res){
+    		    if( foodname_val)
+			      {
+                    $.post( '/enterFoodItemManually',
+						        { foodname:foodname_val,
+						          calories: calories_val,
+						          sodium:   sodium_val,
+        						  total_fat: total_fat_val,
+        						  saturated_fat: saturated_fat_val,
+        						  polyunsaturated_fat: polyunsaturated_fat_val,
+        						  monounsaturated_fat: monounsaturated_fat_val,
+        						  trans_fat: trans_fat_val,
+        						  potassium: potassium_val,
+        						  total_carbs: total_carbs_val,
+        						  dietary_fibres: dietary_fibres_val,
+        						  sugar: sugar_val,
+        						  protiens: protiens_val,
+        						  cholestrol: cholestrol_val,
+        						  vitamin_a: vitamin_a_val,
+        						  vitamin_c: vitamin_c_val,
+        						  calcium: calcium_val,
+        						  iron: iron_val
+					          },
+						        function(res){
                 				alert("Food item data added successfully");
 
-								// reset all the boxes after entering the details
-    							$("#input_foodname").val("");
-    							$("#input1").val("");
-    							$("#input2").val("");
-    							$("#input3").val("");
-    							$("#input4").val("");
-    							$("#input5").val("");
-								$("#input6").val("");
-    							$("#input7").val("");
-								$("#input8").val("");
-    							$("#input9").val("");
-								$("#input10").val("");
-								$("#input11").val("");
-								$("#input12").val("");
-								$("#input13").val("");
-								$("#input14").val("");
-								$("#input15").val("");
-								$("#input16").val("");
-								$("#input17").val("");
-						}
+      								  // reset all the boxes after entering the details
+          							$("#input_foodname").val("");
+          							$("#input1").val("");
+          							$("#input2").val("");
+          							$("#input3").val("");
+          							$("#input4").val("");
+          							$("#input5").val("");
+      								  $("#input6").val("");
+          							$("#input7").val("");
+      								  $("#input8").val("");
+          							$("#input9").val("");
+      								  $("#input10").val("");
+      								  $("#input11").val("");
+      								  $("#input12").val("");
+      								  $("#input13").val("");
+      								  $("#input14").val("");
+      								  $("#input15").val("");
+      								  $("#input16").val("");
+      								  $("#input17").val("");
+						          }
             		).fail(function(res, teststatus, errorthrown){
                 					alert(res.responseText);
-				});
+				      });
     		}
-			else
-			{
+			  else
+			  {
                 alert("Enter a non-empty food-name");
-			}
-		});
+			  }
+	});
 
 		</script>
 	</body>
