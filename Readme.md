@@ -1,7 +1,7 @@
 Holmusk Backend Challenge Submission  
 ----------------------------------------------  
   
-This submission contains two sub-sections (directories with same name also):  
+This submission contains two sub-sections (directories with same name also):
 1. Scrapper
 	- A web scrapper - Scrapper_MyFitness.js to scrap the required data from an input link
 	  and store the data in a DB(MongoDB here).  
