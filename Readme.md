@@ -2,11 +2,11 @@ Holmusk Backend Challenge Submission
 ----------------------------------------------  
   
 This submission contains two sub-sections (directories with same name also):  
-1. Scrapper  
+1. Scrapper
 	- A web scrapper - Scrapper_MyFitness.js to scrap the required data from an input link
 	  and store the data in a DB(MongoDB here).  
-    - Input links used here are from MyFitnessPal  
-    - A file links.txt contains links for 50 different food items from MyFitnessPal  
+    	- Input links used here are from MyFitnessPal  
+    	- A file links.txt contains links for 50 different food items from MyFitnessPal  
 	- run.sh scripts runs the scrapper script on each of the link from links.txt  
 	- Console_scripts subdirectory contains the console based functionality for:  
 		- Query by foodid  
